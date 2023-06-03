@@ -37,3 +37,20 @@ class EmployeeCard:
         for payment in self.all_payments:
             print(payment)
 
+Dima = EmployeeCard("Ivanov","QA",11000,3)
+print(Dima.status)
+Dima.payCalc()
+print(Dima.all_payments[0])
+Dima.payCalc()
+print(Dima.all_payments[1])
+Dima.getAllPayments()
+
+Dima.changeStatus(2)
+print(Dima.status)
+Dima.payCalc()
+print(Dima.all_payments[0])
+Dima.payCalc()
+print(Dima.all_payments[1])
+Dima.getAllPayments()
+           
+
