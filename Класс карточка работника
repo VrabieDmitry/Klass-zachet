@@ -1,0 +1,39 @@
+from random import randint
+
+class EmployeeCard:
+
+    list_departments = ['Management', 'Development', 'QA', 'Support']
+    
+    list_status = ['Работает', 'Отпуск', 'Больничный', 'Уволен']
+
+    def __init__(self, surname, position, salary, department_index):
+        self.surname = surname
+        self.position = position
+        self.salary = salary
+        self.department = self.list_departments[department_index]
+        self.status = self.list_status[0]
+        self.all_payments = []
+
+    def changeStatus(self, status_index):
+        self.status = self.list_status[status_index]
+
+    def payCalc(self):
+        if self.status == 'Уволен':
+            print('Работник уволен')
+        elif self.status == 'Больничный':
+            payment = self.salary * 0.85
+            self.all_payments.append(payment)
+        elif self.status == 'Отпуск':
+            payment = self.salary + randint(1000, 2000)
+            self.all_payments.append(payment)
+        elif self.status == 'Работает':
+            if self.department == 'Management':
+                payment = self.salary + randint(1000, 2000)
+            else:
+                payment = self.salary + randint(0, 2000)
+            self.all_payments.append(payment)
+
+    def getAllPayments(self):
+        for payment in self.all_payments:
+            print(payment)
+
